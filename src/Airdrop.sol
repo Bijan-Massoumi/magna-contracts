@@ -149,6 +149,8 @@ contract Airdrop {
 
         // send tokens to address
         IERC20(merkleData.tokenAddress).safeTransfer(_to, _amount);
+
+        // if _amount > merkleData.amountRemaining, solidity will underflow revert
         merkleData.amountRemaining -= _amount;
 
         // Emit claim event
