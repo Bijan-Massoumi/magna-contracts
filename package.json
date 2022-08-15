@@ -1,0 +1,25 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "forge build ; typechain --target=ethers-v5 --out-dir ../magna-webapp/typechain ./out/Airdrop.sol/Airdrop.json ",
+    "startNode": "anvil -m 'test test test test test test test test test test test junk'",
+    "deployLocal": " npm run build && forge create --rpc-url http://localhost:8545 --private-key '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80' src/Airdrop.sol:Airdrop",
+    "deployTestToken": "forge create --rpc-url http://localhost:8545 --private-key '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80' src/TestToken.sol:TestToken --constructor-args 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 10000000000000000000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typechain": "^8.1.0"
+  },
+  "dependencies": {
+    "@typechain/ethers-v5": "^10.1.0"
+  }
+}
